@@ -1,0 +1,29 @@
+GET http://localhost:5000/products
+###
+GET http://localhost:5000/products/646371973f2e71c114f55ac8
+###
+POST http://localhost:5000/products
+Content-Type: application/json
+
+{
+    "id": 1,
+    "title": "iPhone 9",
+    "description": "An apple mobile which is nothing like apple",
+    "price": 549,
+    "discountPercentage": 12.96,
+    "rating": 4.69,
+    "stock": 94,
+    "brand": "Apple",
+    "category": "smartphones",
+    "thumbnail": "kfndskfn",
+    "images": ["oneeeeee", "twooooo", "threeeee"]
+    }
+###
+DELETE http://localhost:5000/products/646371973f2e71c114f55ac8
+###
+PATCH http://localhost:5000/products/646371973f2e71c114f55ac8
+Content-Type: application/json
+
+{
+    "title": "iPhone 69"
+}
