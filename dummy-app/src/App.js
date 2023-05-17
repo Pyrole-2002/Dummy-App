@@ -16,7 +16,7 @@ function App() {
 					url: "http://localhost:5000/products",
 				});
 				setData(data);
-				console.log(data);
+				// console.log(data);
 			} catch (err) {
 				console.error(err);
 			}
