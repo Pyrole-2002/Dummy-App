@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 
 const CreateForm = () => {
     const [product, setProduct] = useState({
@@ -20,22 +21,48 @@ const CreateForm = () => {
         setProduct({ ...product, [name]: value });
         console.log(`field: ${name}`,`product: ${product}`);
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(product);
-        setProduct({
-            id: "",
-            title: "",
-            description: "",
-            price: "",
-            discountPercentage: "",
-            rating: "",
-            stock: "",
-            brand: "",
-            category: "",
-            thumbnail: "",
-            images: [],
-        });
+
+        try {
+            await axios({
+                method: "post",
+                url: "http://localhost:5000/products",
+                data: {
+                    id: product.id,
+                    title: product.title,
+                    description: product.description,
+                    price: product.price,
+                    discountPercentage: product.discountPercentage,
+                    rating: product.rating,
+                    stock: product.stock,
+                    brand: product.brand,
+                    category: product.category,
+                    thumbnail: product.thumbnail,
+                    images: product.images.split(","),
+                },
+                Headers: {
+                    Accept: "application/json",
+                },
+            });
+            console.log(product);
+    
+            setProduct({
+                id: "",
+                title: "",
+                description: "",
+                price: "",
+                discountPercentage: "",
+                rating: "",
+                stock: "",
+                brand: "",
+                category: "",
+                thumbnail: "",
+                images: [],
+            });
+        } catch (err) {
+            console.log("Error Creating Product:", err);
+        }
     }
     return (
         <form onSubmit={handleSubmit} style={{

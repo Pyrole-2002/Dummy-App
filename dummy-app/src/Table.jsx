@@ -3,7 +3,6 @@ const Table = ({ data }) => {
 	let headings = [];
 	if (data) {
 		headings = Object.keys(data[0]);
-		// consosle.log(headings);
 	}
 	else {
 		return

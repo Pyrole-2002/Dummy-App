@@ -5,7 +5,11 @@ const Buttons = ({ handleButton }) => {
             justifyContent: "center",
             alignItems: "center",
         }}>
-            <button onClick={() => handleButton(true)}>Create</button>
+            <button
+                onClick={() => handleButton(true)} autoFocus
+            >
+                Create
+            </button>
             <button onClick={() => handleButton(false)}>Delete</button>
         </div>
     )
