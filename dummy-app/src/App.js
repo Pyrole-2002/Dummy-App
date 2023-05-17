@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Table from "./Table";
+import Form from "./Form";
 
 function App() {
 	const [data, setData] = useState([]);
@@ -19,7 +20,10 @@ function App() {
 	console.log(data);
 
 	return (
-		<Table data={data.products} />
+		<div className="App">
+			<Form />
+			<Table data={data.products} />
+		</div>
 	)
 }
 
