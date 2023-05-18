@@ -61,7 +61,7 @@ const CreateForm = () => {
                 images: [],
             });
         } catch (err) {
-            console.log("Error Creating Product:", err);
+            console.log("Error Creating Product: ", err);
         }
     }
     return (

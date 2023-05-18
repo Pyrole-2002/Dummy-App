@@ -18,6 +18,9 @@ app.use(express.json());
 const productsRouter = require('./routes/products');
 app.use('/products', productsRouter);
 
+const usersRouter = require('./routes/users');
+app.use('/users', usersRouter);
+
 const PORT = process.env.PORT || 2000;
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
