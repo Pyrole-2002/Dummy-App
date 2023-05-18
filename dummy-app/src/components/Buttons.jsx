@@ -10,7 +10,11 @@ const Buttons = ({ handleButton }) => {
             >
                 Create
             </button>
-            <button onClick={() => handleButton(false)}>Delete</button>
+            <button
+                onClick={() => handleButton(false)}
+            >
+                Delete
+            </button>
         </div>
     )
 }

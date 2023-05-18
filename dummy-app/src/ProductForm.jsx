@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import Buttons from './Buttons';
+import Buttons from './components/Buttons';
 import CreateForm from './CreateForm';
 import DeleteForm from './DeleteForm';
 
-const Form = () => {
+const ProductForm = () => {
 	const [create, setCreate] = useState(true);
 
 	return (
@@ -14,4 +14,4 @@ const Form = () => {
 	)
 }
 
-export default Form
+export default ProductForm

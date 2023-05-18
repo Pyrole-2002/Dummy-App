@@ -1,5 +1,10 @@
 const Table = ({ data }) => {
 	// console.log(data);
+	if (data === undefined || data.length === 0) {
+		return (
+			<h1 style={{textAlign: "center"}}>No Products</h1>
+		)
+	}
 	let headings = [];
 	if (data) {
 		headings = Object.keys(data[0]);

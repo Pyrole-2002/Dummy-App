@@ -21,7 +21,7 @@ const DeleteForm = () => {
 			})
 			const products = rawData.data
 			console.log(products, product.id)
-			const foundProduct = products.find((obj) => obj.id == product.id);
+			const foundProduct = products.find((obj) => obj.id === parseInt(product.id));
 			console.log(foundProduct)
 			if (foundProduct) {
 				const mongoId = foundProduct._id
