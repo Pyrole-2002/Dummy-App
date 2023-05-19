@@ -1,34 +1,35 @@
-// import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-// import axios from "axios";
-// import Table from "./Table";
-// import ProductForm from "./ProductForm";
 import LoginRegister from "./pages/LoginRegister";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
+import MyContext from "./components/MyContext";
 
 function App() {
+	const [logUser, setLogUser] = useState();
 	return (
-		<Routes>
-			<Route
-				path="/dashboard/:id"
-				element={
-					<Dashboard />
-				}
-			/>
-			<Route
-				path="/"
-				element={
-					<LoginRegister />
-				}
-			/>
-			<Route
-				path="*"
-				element={
-					<NotFound />
-				}
-			/>
-		</Routes>
+		<MyContext.Provider value={{ logUser, setLogUser }}>
+			<Routes>
+				<Route
+					path="/dashboard/:id"
+					element={
+						<Dashboard />
+					}
+				/>
+				<Route
+					path="/"
+					element={
+						<LoginRegister />
+					}
+				/>
+				<Route
+					path="*"
+					element={
+						<NotFound />
+					}
+				/>
+			</Routes>
+		</MyContext.Provider>
 	)
 
 

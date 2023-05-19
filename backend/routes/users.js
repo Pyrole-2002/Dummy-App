@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/users');
+const auth = require('../middleware/auth');
 
 // // Get all users
 // router.get('/', async (req, res) => {
@@ -93,7 +94,7 @@ router.post('/login', async (req, res) => {
         const token = jwt.sign({
             username: userExists.username,
             id: userExists._id
-        }, PROCESS.ENV.JWT_SECRET, { expiresIn: '1h' });
+        }, process.env.JWT_SECRET, { expiresIn: '1h' });
         res.status(200).json({ result: userExists, token });
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -113,10 +114,20 @@ router.post('/register', async (req, res) => {
         const token = jwt.sign({
             username: result.username,
             id: result._id
-        }, PROCESS.ENV.JWT_SECRET, { expiresIn: '1h' });
+        }, process.env.JWT_SECRET, { expiresIn: '1h' });
         res.status(200).json({ result, token });
     } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+})
 
+// Verify Token
+router.get('/verify', auth, async (req, res) => {
+    try {
+        const user = await User.findById(req.userId);
+        res.status(200).json({ user });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
     }
 })
 

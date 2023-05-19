@@ -22,7 +22,7 @@ const RegisterForm = () => {
         try {
             await axios({
                 method: "POST",
-                url: "http://localhost:5000/users",
+                url: "http://localhost:5000/users/register",
                 data: {
                     username: user.username,
                     password: user.password,

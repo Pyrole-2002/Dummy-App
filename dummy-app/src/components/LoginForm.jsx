@@ -1,7 +1,31 @@
-import { useState } from "react"
+import { useState, useContext, Navigate } from "react"
 import axios from "axios"
+import MyContext from "./MyContext"
 
-const RegisterForm = () => {
+const TokenVerification = async (token) => {
+	if (!token) {
+		return false
+	};
+	try {
+		const response = await axios({
+			method: "POST",
+			url: "http://localhost:5000/users/verify",
+			data: {
+				token: token,
+			},
+			Headers: {
+				Accept: "application/json",
+			},
+		});
+		console.log("Response: ", response.data);
+		return response.data;
+	} catch (error) {
+		console.log("Error While Verifying Token: ", error);
+	}
+}
+
+const LoginForm = () => {
+	const { logUser, setLogUser } = useContext(MyContext);
 	const [user, setUser] = useState({
 		username: "",
 		password: "",
@@ -14,27 +38,38 @@ const RegisterForm = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		// try {
-		// 	await axios({
-		// 		method: "POST",
-		// 		url: "http://localhost:5000/users",
-		// 		data: {
-		// 			username: user.username,
-		// 			password: user.password,
-		// 		},
-		// 		Headers: {
-		// 			Accept: "application/json",
-		// 		},
-		// 	});
-		// 	console.log(user);
+		try {
+			const response = await axios({
+				method: "POST",
+				url: "http://localhost:5000/users/login",
+				data: {
+					username: user.username,
+					password: user.password,
+				},
+				Headers: {
+					Accept: "application/json",
+				},
+			});
+			console.log("Response: ", response.data);
+			console.log("User: ", user);
+			setLogUser(response.data);
 
-		// 	setUser({
-		// 		username: "",
-		// 		password: "",
-		// 	});
-		// } catch (error) {
-		// 	console.log("Error Creating User: ", error);
-		// }
+			setUser({
+				username: "",
+				password: "",
+			});
+			if (response.data) {
+				const token = response.data.token;
+				const tokenVerified = await TokenVerification(token);
+				console.log("Token Verified: ", tokenVerified);
+				if (tokenVerified) {
+					const username = response.data.result.username;
+					return <Navigate to={`/dashboard/:${username}`} />;
+				}
+			}
+		} catch (error) {
+			console.log("Error While Login: ", error);
+		}
 	}
 	return (
         <form
@@ -73,4 +108,4 @@ const RegisterForm = () => {
     );
 }
 
-export default RegisterForm
+export default LoginForm
