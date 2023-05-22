@@ -1,7 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
+import { useContext } from "react";
+import MyContext from "./MyContext"
 
 const CreateForm = () => {
+    const { logUser, setLogUser } = useContext(MyContext);
     const [product, setProduct] = useState({
         id: "",
         title: "",
@@ -40,6 +43,7 @@ const CreateForm = () => {
                     category: product.category,
                     thumbnail: product.thumbnail,
                     images: product.images.split(","),
+                    user: logUser.result.username
                 },
                 Headers: {
                     Accept: "application/json",

@@ -1,7 +1,10 @@
 import { useState } from "react"
 import axios from "axios"
+import { useContext } from "react";
+import MyContext from "./MyContext";
 
 const DeleteForm = () => {
+    const { logUser, setLogUser } = useContext(MyContext);
 	const [product, setProduct] = useState({
 		id: "",
 	})
@@ -17,7 +20,7 @@ const DeleteForm = () => {
 		try {
 			const rawData = await axios({
 				method: "GET",
-				url: "http://localhost:5000/products",
+				url: `http://localhost:5000/products/${logUser.result.username}`,
 			})
 			const products = rawData.data
 			console.log(products, product.id)

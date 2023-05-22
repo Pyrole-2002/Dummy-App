@@ -1,14 +1,18 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useContext } from "react";
+import MyContext from "./MyContext";
 
 const Table = () => {
+	const { logUser, setLogUser } = useContext(MyContext);
+
 	const [data, setData] = useState([]);
 	useEffect(() => {
 		async function fetchData() {
 			try {
 				const response = await axios({
 					method: "GET",
-					url: "http://localhost:5000/products",
+					url: `http://localhost:5000/products/${logUser.result.username}`,
 				});
 				setData(response.data);
 			} catch (error) {
