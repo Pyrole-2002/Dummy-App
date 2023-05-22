@@ -1,4 +1,5 @@
-import { useState, useContext, Navigate } from "react"
+import { useState, useContext } from "react"
+import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import MyContext from "./MyContext"
 
@@ -25,6 +26,7 @@ const TokenVerification = async (token) => {
 }
 
 const LoginForm = () => {
+	const navigate = useNavigate();
 	const { logUser, setLogUser } = useContext(MyContext);
 	const [user, setUser] = useState({
 		username: "",
@@ -59,13 +61,10 @@ const LoginForm = () => {
 				password: "",
 			});
 			if (response.data) {
-				const token = response.data.token;
-				const tokenVerified = await TokenVerification(token);
-				console.log("Token Verified: ", tokenVerified);
-				if (tokenVerified) {
-					const username = response.data.result.username;
-					return <Navigate to={`/dashboard/:${username}`} />;
-				}
+				console.log("Username: ", response.data.result.username);
+				navigate(`/dashboard/${response.data.result.username}`, {
+                    replace: true,
+                });
 			}
 		} catch (error) {
 			console.log("Error While Login: ", error);
