@@ -43,9 +43,12 @@ const productSchema = new mongoose.Schema({
     image: {
         type: String,
     },
-    user: {
+    provider: {
         type: String,
     },
+    subscribers: {
+        type: [String],
+    }
 });
 
 module.exports = mongoose.model('Product', productSchema);

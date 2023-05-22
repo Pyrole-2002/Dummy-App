@@ -1,4 +1,4 @@
-const CreateDeleteBut = ({ handleButton }) => {
+const CreateDeleteBut = ({ handleButton, selection }) => {
     return (
         <div
             style={{
@@ -7,11 +7,23 @@ const CreateDeleteBut = ({ handleButton }) => {
                 alignItems: "center",
             }}
         >
-            <button onClick={() => handleButton(true)}>
+            <button
+                className={selection ? "selected" : ""}
+                onClick={() => handleButton(true)}
+                style={{
+                    background: "#4400ff",
+                }}
+            >
                 Create
             </button>
-            <button onClick={() => handleButton(false)}>
-                Delete
+            <button
+                className={selection ? "" : "selected"}
+                onClick={() => handleButton(false)}
+                style={{
+                    background: "#4400ff",
+                }}
+            >
+                Actions
             </button>
         </div>
     );

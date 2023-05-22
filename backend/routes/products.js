@@ -4,20 +4,30 @@ const Product = require('../models/products');
 const auth = require('../middleware/auth');
 
 // Get all products
+router.get('/', async (req, res) => {
+    try {
+        const products = await Product.find();
+        res.json(products);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+})
+
+// Get all products for a user
 router.get('/:username', async (req, res) => {
     try {
         const username = req.params.username
-        const products = await Product.find({ user: username });
+        const products = await Product.find({
+            $or: [
+                { provider: username },
+                { subscribers: { $in: [username] } }
+            ]
+        });
         res.json(products);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 });
-
-// // Get one product
-// router.get('/:id', getProduct, (req, res) => {
-//     res.send(res.product);
-// });
 
 // Create one product
 router.post('/', async (req, res) => {
@@ -33,7 +43,8 @@ router.post('/', async (req, res) => {
         category: req.body.category,
         thumbnail: req.body.thumbnail,
         image: req.body.images[0],
-        user: req.body.user
+        provider: req.body.provider,
+        subscribers: req.body.subscribers
     })
     try {
         const newProduct = await product.save();
@@ -56,7 +67,9 @@ router.patch("/:id", getProduct, async (req, res) => {
         "brand",
         "category",
         "thumbnail",
-        "image"
+        "image",
+        "provider",
+        "subscribers"
     ]
     for (const field of fields) {
         if (req.body[field] !== undefined) {

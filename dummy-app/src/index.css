@@ -36,7 +36,8 @@ button {
   transition: opacity 0.3s ease;
 }
 
-button:hover {
+button:hover,
+button.selected {
   opacity: 1;
 }
 

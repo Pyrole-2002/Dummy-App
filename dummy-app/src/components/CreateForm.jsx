@@ -43,7 +43,8 @@ const CreateForm = () => {
                     category: product.category,
                     thumbnail: product.thumbnail,
                     images: product.images.split(","),
-                    user: logUser.result.username
+                    provider: logUser.result.username,
+                    subscribers: [logUser.result.username],
                 },
                 Headers: {
                     Accept: "application/json",
@@ -69,12 +70,15 @@ const CreateForm = () => {
         }
     }
     return (
-        <form onSubmit={handleSubmit} style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-        }}>
+        <form
+            onSubmit={handleSubmit}
+            style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+            }}
+        >
             <label>
                 id:
                 <input
@@ -189,7 +193,14 @@ const CreateForm = () => {
                 />
             </label>
             <br />
-            <button type="submit">Submit</button>
+            <button
+                type="submit"
+                style={{
+                    background: "#009632",
+                }}
+            >
+                Submit
+            </button>
         </form>
     );
 }
