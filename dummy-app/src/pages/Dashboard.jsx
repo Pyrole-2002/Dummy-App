@@ -1,20 +1,13 @@
-import { useParams, useNavigate } from "react-router-dom"
-import { useContext } from "react"
-import MyContext from "../components/MyContext"
+import Navbar from "../components/Navbar"
+import ProductForm from "../components/ProductForm"
+import Table from "../components/Table"
 
 const Dashboard = () => {
-	const navigate = useNavigate();
-	const { logUser, setLogUser } = useContext(MyContext);
-	const { id } = useParams()
-	const handleLogout = () => {
-		console.log("Logout")
-		setLogUser(null)
-		navigate("/")
-	}
 	return (
 		<div>
-			<h1>Dashboard {id}</h1>
-			<button onClick={handleLogout}>Logout</button>
+			<Navbar />
+			<ProductForm />
+			<Table />
 		</div>
 	)
 }

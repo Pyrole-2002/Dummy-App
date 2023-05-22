@@ -31,34 +31,6 @@ function App() {
 			</Routes>
 		</MyContext.Provider>
 	)
-
-
-	// const [data, setData] = useState([]);
-
-	// useEffect(() => {
-	// 	async function fetchData() {
-	// 		try {
-	// 			const data = await axios({
-	// 				method: "GET",
-	// 				url: "http://localhost:5000/products",
-	// 			});
-	// 			setData(data);
-	// 			// console.log(data);
-	// 		} catch (err) {
-	// 			console.error(err);
-	// 		}
-	// 	}
-	// 	fetchData();
-	// 	const interval = setInterval(fetchData, 1000);
-	// 	return () => clearInterval(interval);
-	// }, []);
-
-	// return (
-	// 	<div className="App">
-	// 		<ProductForm />
-	// 		<Table data={data.data} />
-	// 	</div>
-	// )
 }
 
 export default App;

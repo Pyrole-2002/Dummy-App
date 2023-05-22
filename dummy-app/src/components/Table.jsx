@@ -1,4 +1,24 @@
-const Table = ({ data }) => {
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+const Table = () => {
+	const [data, setData] = useState([]);
+	useEffect(() => {
+		async function fetchData() {
+			try {
+				const response = await axios({
+					method: "GET",
+					url: "http://localhost:5000/products",
+				});
+				setData(response.data);
+			} catch (error) {
+				console.log(error);
+			}
+		}
+		fetchData();
+		const interval = setInterval(fetchData, 1000);
+		return () => clearInterval(interval);
+	}, []);
 	// console.log(data);
 	if (data === undefined || data.length === 0) {
 		return (

@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import CreateDeleteBut from "./components/CreateDeleteBut";
-import CreateForm from './components/CreateForm';
-import DeleteForm from './components/DeleteForm';
+import CreateDeleteBut from "./CreateDeleteBut";
+import CreateForm from './CreateForm';
+import DeleteForm from './DeleteForm';
 
 const ProductForm = () => {
 	const [create, setCreate] = useState(true);
