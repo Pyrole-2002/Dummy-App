@@ -5,6 +5,8 @@ const NotFound = () => {
         <div
             style={{
                 transition: "all 0.6s ease-in-out",
+                position: "relative",
+                top: "50px",
             }}
         >
             <div
@@ -23,22 +25,25 @@ const NotFound = () => {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        fontSize: "6em",
+                        fontSize: "8em",
                     }}
                 >
                     Error 404
                 </h1>
                 <button
                     style={{
-                        width: "110px",
-                        backgroundColor: "#3700ff",
+                        width: "200px",
+                        height: "60px",
+                        backgroundColor: "#ff2b2b",
                     }}
-                >
+                    >
                     <Link
                         to="/"
                         style={{
                             textDecoration: "none",
                             color: "#fff",
+                            fontSize: "2em",
+                            fontFamily: "Arvo"
                         }}
                     >
                         Go Back
