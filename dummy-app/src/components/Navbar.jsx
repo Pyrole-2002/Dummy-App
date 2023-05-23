@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom"
 import { useContext } from "react"
 import MyContext from "../components/MyContext"
+import DashButtons from "./DashButtons"
 
-const Navbar = () => {
+const Navbar = ({ tab, setTab }) => {
     const navigate = useNavigate();
     const { logUser, setLogUser } = useContext(MyContext);
     const handleLogout = () => {
@@ -13,22 +14,20 @@ const Navbar = () => {
     console.log(logUser)
     return (
         <div className="navbar">
-            <label>User {logUser.result.username}</label>
-            <ul>
-                <li>
-                    <button
-                        onClick={handleLogout}
-                        style={{
-                            position: "absolute",
-                            right: "10px",
-                            top: "0px",
-                            backgroundColor: "#ff192d",
-                        }}
-                    >
-                        Logout
-                    </button>
-                </li>
-            </ul>
+            <div className="dash_title">
+                {logUser.result.username}'s Dashboard
+            </div>
+            <DashButtons tab={tab} setTab={setTab} />
+            <button
+                onClick={handleLogout}
+                style={{
+                    backgroundColor: "#ff192d",
+                    fontWeight: "500",
+                    fontSize: "1.7rem",
+                }}
+            >
+                Logout
+            </button>
         </div>
     );
 }
