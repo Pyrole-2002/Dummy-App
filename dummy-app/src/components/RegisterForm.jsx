@@ -53,39 +53,52 @@ const RegisterForm = () => {
             }}
         >
             <label>
-                Username:
                 <input
+                    className="login_reg"
                     type="text"
                     name="username"
                     value={user.username}
                     onChange={handleChange}
                     required
+                    placeholder="New Username"
                 />
             </label>
             <br />
             <label>
-                Password:
                 <input
+                    className="login_reg"
                     type="password"
                     name="password"
                     value={user.password}
                     onChange={handleChange}
                     required
+                    placeholder="New Password"
                 />
             </label>
             <br />
             <label>
-                Confirm Password:
                 <input
+                    className="login_reg"
                     type="password"
                     name="confirmPassword"
                     value={user.confirmPassword}
                     onChange={handleChange}
                     required
+                    placeholder="Confirm Password"
                 />
             </label>
             <br />
-            <button type="submit">Register</button>
+            <button
+                type="submit"
+                style={{
+                    width: "200px",
+                    margin: "0",
+                    fontSize: "2rem",
+                    position: "relative",
+                }}
+            >
+                Register
+            </button>
         </form>
     );
 };

@@ -77,32 +77,47 @@ const LoginForm = () => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
-                alignItems: "center",
+				alignItems: "center",
+				position: "relative",
+				top: "30px",
             }}
         >
             <label>
-                Username:
                 <input
+                    className="login_reg"
                     type="text"
                     name="username"
                     value={user.username}
                     onChange={handleChange}
+                    placeholder="Username"
                     required
                 />
             </label>
             <br />
             <label>
-                Password:
                 <input
+                    className="login_reg"
                     type="password"
                     name="password"
                     value={user.password}
                     onChange={handleChange}
+                    placeholder="Password"
                     required
                 />
             </label>
             <br />
-			<button type="submit">Login</button>
+            <button
+                type="submit"
+                style={{
+                    width: "200px",
+                    margin: "0",
+					fontSize: "2rem",
+					position: "relative",
+					top: "30px",
+                }}
+            >
+                Login
+            </button>
         </form>
     );
 }

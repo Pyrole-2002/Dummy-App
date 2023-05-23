@@ -51,7 +51,8 @@ const ActionsForm = () => {
 		console.log(products, product.id)
 		const foundProduct = products.find((obj) => obj.id === parseInt(product.id));
 		console.log(foundProduct)
-		if (foundProduct) {
+		// Check if product exists and if user is not already subscribed
+		if (foundProduct && !foundProduct.subscribers.includes(logUser.result.username)) {
 			const mongoId = foundProduct._id
 			await axios({
 				method: "PATCH",
@@ -64,7 +65,7 @@ const ActionsForm = () => {
 				},
 			});
 		} else {
-			console.log("Product not found")
+			console.log("Product not found or user already subscribed")
 		}
 		setProduct({
 			id: "",

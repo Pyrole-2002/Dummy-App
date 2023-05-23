@@ -1,4 +1,4 @@
-const LoginRegBut = ({ handleButton }) => {
+const LoginRegBut = ({ selection, handleButton }) => {
     return (
         <div
             style={{
@@ -7,10 +7,28 @@ const LoginRegBut = ({ handleButton }) => {
                 alignItems: "center",
             }}
         >
-            <button onClick={() => handleButton(true)}>
+            <button
+                onClick={() => handleButton(true)}
+                className={selection ? "selected" : ""}
+                style={{
+                    width: "300px",
+                    margin: "0",
+                    borderRadius: "0",
+                    fontSize: "1.7rem",
+                }}
+            >
                 Login
             </button>
-            <button onClick={() => handleButton(false)}>
+            <button
+                onClick={() => handleButton(false)}
+                className={selection ? "" : "selected"}
+                style={{
+                    width: "300px",
+                    margin: "0",
+                    borderRadius: "0",
+                    fontSize: "1.7rem",
+                }}
+            >
                 Register
             </button>
         </div>
