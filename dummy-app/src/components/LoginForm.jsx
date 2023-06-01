@@ -91,6 +91,7 @@ const LoginForm = () => {
                     onChange={handleChange}
                     placeholder="Username"
                     required
+					autoComplete="off"
                 />
             </label>
             <br />
@@ -103,6 +104,7 @@ const LoginForm = () => {
                     onChange={handleChange}
                     placeholder="Password"
                     required
+					autoComplete="off"
                 />
             </label>
             <br />
@@ -114,7 +116,7 @@ const LoginForm = () => {
 					fontSize: "2rem",
 					position: "relative",
 					top: "30px",
-                }}
+				}}
             >
                 Login
             </button>

@@ -18,6 +18,10 @@ body {
 	color: #d2d2d2;
 }
 
+div {
+	word-wrap: break-word;
+}
+
 code {
 	font-family: source-code-pro, monospace;
 }
@@ -35,7 +39,7 @@ button {
 	cursor: pointer;
 	border-radius: 7px;
 	opacity: 0.5;
-	transition: opacity 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
 
 button:hover,
@@ -48,6 +52,7 @@ button.selected {
 	margin: 20px 0 20px 0;
 	font-size: 30px;
 	font-weight: 600;
+	text-shadow: 2px 2px 5px #000000;
 }
 
 input {
@@ -87,14 +92,6 @@ input.login_reg:focus::placeholder {
 	color: #1e1c3c9f;
 }
 
-.navbar {
-	width: 400px;
-	height: 100vh;
-	background: #004c1e;
-	display: flex;
-	flex-direction: column;
-}
-
 .auth {
 	display: flex;
 	flex-direction: column;
@@ -112,14 +109,84 @@ input.login_reg:focus::placeholder {
 	box-shadow: #282648 5px 5px 30px;
 }
 
-.dash_content {
-	background-color: #390047;
+.navbar {
+	width: 20%;
 	height: 100vh;
-	width: 100%;
+	background: #1e1c3c;
+	display: flex;
+	flex-direction: column;
+	box-shadow: #282648 5px 5px 30px;
+}
+
+.dash_content {
+	background-color: #030016;
+	height: 100vh;
+	width: 75%;
 }
 
 .dash_button {
-	width: 100%;
-	border-radius: 0%;
-	margin: 0;
+	width: 90%;
+	height: 50px;
+	border-radius: 7px;
+	margin: 5px;
+	font-size: 20px;
+	text-align: left;
+}
+
+.dash_button:hover {
+	color: #ffffff;
+}
+
+.dash_button.selected {
+	background-color: #524f69;
+	color: #ffffff;
+}
+
+table,
+th,
+td {
+	padding: 10px;
+}
+
+table {
+	border-collapse: collapse;
+	margin-top: 20px;
+	table-layout: fixed;
+	width: 90%;
+	font-size: 14px;
+}
+
+th {
+	background-color: #710033;
+	color: #ffffff;
+	text-transform: capitalize;
+	height: 70px;
+}
+
+td {
+	background-color: #252042;
+	color: #d2d2d2;
+	word-wrap: break-word;
+	border-top: 10px solid #030016;
+	transition: all 0.3s ease-in-out;
+}
+
+tr:hover td {
+	background-color: #3b3563;
+}
+
+th:first-child {
+	border-top-left-radius: 10px;
+}
+
+th:last-child {
+	border-top-right-radius: 10px;
+}
+
+tr:last-child td:first-child {
+	border-bottom-left-radius: 10px;
+}
+
+tr:last-child td:last-child {
+	border-bottom-right-radius: 10px;
 }

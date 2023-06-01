@@ -1,7 +1,8 @@
 import { useState } from "react"
 import Navbar from "../components/Navbar"
-import ProductForm from "../components/ProductForm"
-import Table from "../components/Table"
+import MyServices from "../components/MyServices"
+import AllServices from "../components/AllServices"
+import MySubscriptions from "../components/MySubscriptions"
 
 const Dashboard = () => {
 	// const possibleTabs = [
@@ -15,9 +16,15 @@ const Dashboard = () => {
 		<div style={{
 			display: "flex",
 			flexDirection: "row",
+			justifyContent: "space-between",
+			alignItems: "space-between",
 		}}>
 			<Navbar tab={tab} setTab={setTab} />
-			<div className="dash_content"></div>
+			<div className="dash_content">
+				{tab === "my_services" && <MyServices />}
+				{tab === "all_services" && <AllServices />}
+				{tab === "my_subscriptions" && <MySubscriptions />}
+			</div>
 		</div>
 	)
 }

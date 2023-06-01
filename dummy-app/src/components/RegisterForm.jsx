@@ -61,6 +61,7 @@ const RegisterForm = () => {
                     onChange={handleChange}
                     required
                     placeholder="New Username"
+                    autoComplete="off"
                 />
             </label>
             <br />
@@ -73,6 +74,7 @@ const RegisterForm = () => {
                     onChange={handleChange}
                     required
                     placeholder="New Password"
+                    autoComplete="off"
                 />
             </label>
             <br />
@@ -85,6 +87,7 @@ const RegisterForm = () => {
                     onChange={handleChange}
                     required
                     placeholder="Confirm Password"
+                    autoComplete="off"
                 />
             </label>
             <br />

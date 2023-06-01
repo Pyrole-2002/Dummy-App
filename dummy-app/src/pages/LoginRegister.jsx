@@ -19,6 +19,7 @@ const LoginRegister = () => {
 					width: '300px',
 					position: 'relative',
 					top: '10px',
+					margin: '10px',
 				}} />
 				<LoginRegBut handleButton={setLogin} selection={login} />
 				{login ? <LoginForm /> : <RegisterForm />}
