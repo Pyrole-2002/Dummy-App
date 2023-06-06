@@ -42,6 +42,12 @@ const productSchema = new mongoose.Schema({
     },
     image: {
         type: String,
+    },
+    provider: {
+        type: String,
+    },
+    subscribers: {
+        type: [String],
     }
 });
 

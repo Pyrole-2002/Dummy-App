@@ -1,25 +1,35 @@
-import { useState, useEffect } from "react";
-import Table from "./Table";
+import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import LoginRegister from "./pages/LoginRegister";
+import Dashboard from "./pages/Dashboard";
+import NotFound from "./pages/NotFound";
+import MyContext from "./components/MyContext";
 
 function App() {
-	const [data, setData] = useState([]);
-
-	useEffect(() => {
-		async function fetchData() {
-			try {
-				const res = await fetch('https://dummyjson.com/products');
-				const data = await res.json();
-				setData(data);
-			} catch (err) {
-				console.error(err);
-			}
-		}
-		fetchData();
-	}, []);
-	console.log(data);
-
+	const [logUser, setLogUser] = useState();
 	return (
-		<Table data={data.products} />
+		<MyContext.Provider value={{ logUser, setLogUser }}>
+			<Routes>
+				<Route
+					path="/dashboard/:id"
+					element={
+						<Dashboard />
+					}
+				/>
+				<Route
+					path="/"
+					element={
+						<LoginRegister />
+					}
+				/>
+				<Route
+					path="*"
+					element={
+						<NotFound />
+					}
+				/>
+			</Routes>
+		</MyContext.Provider>
 	)
 }
 

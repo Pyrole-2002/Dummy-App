@@ -2,6 +2,10 @@ require('dotenv').config();
 
 const express = require('express');
 const app = express();
+const cors = require('cors');
+
+app.use(cors());
+
 const mongoose = require('mongoose');
 
 mongoose.connect(process.env.DATABASE_URL)
@@ -13,6 +17,9 @@ app.use(express.json());
 
 const productsRouter = require('./routes/products');
 app.use('/products', productsRouter);
+
+const usersRouter = require('./routes/users');
+app.use('/users', usersRouter);
 
 const PORT = process.env.PORT || 2000;
 
