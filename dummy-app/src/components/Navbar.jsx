@@ -30,7 +30,7 @@ const Navbar = ({ tab, setTab }) => {
             </div>
             <DashButtons tab={tab} setTab={setTab} />
             <div style={{
-                height: "500px",
+                height: "90vh",
             }} />
             <button
                 onClick={handleLogout}

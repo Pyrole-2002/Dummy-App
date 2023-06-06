@@ -190,3 +190,8 @@ tr:last-child td:first-child {
 tr:last-child td:last-child {
 	border-bottom-right-radius: 10px;
 }
+
+input.general_inp {
+	background: transparent;
+	border: 2px solid #8a8a8a;
+}

@@ -15,19 +15,19 @@ const DashButtons = ({ tab, setTab }) => {
             </button>
             <button
                 className={`dash_button ${
-                    tab === "all_services" ? "selected" : ""
+                    tab === "add_service" ? "selected" : ""
                 }`}
-                onClick={() => setTab("all_services")}
+                onClick={() => setTab("add_service")}
             >
-                All Services
+                Add Service
             </button>
             <button
                 className={`dash_button ${
-                    tab === "my_subscriptions" ? "selected" : ""
+                    tab === "update_service" ? "selected" : ""
                 }`}
-                onClick={() => setTab("my_subscriptions")}
+                onClick={() => setTab("update_service")}
             >
-                My Subscriptions
+                Update Service
             </button>
         </div>
     );

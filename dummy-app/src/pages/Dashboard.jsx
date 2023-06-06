@@ -1,16 +1,10 @@
 import { useState } from "react"
 import Navbar from "../components/Navbar"
 import MyServices from "../components/MyServices"
-import AllServices from "../components/AllServices"
-import MySubscriptions from "../components/MySubscriptions"
+import AddService from "../components/AddService"
+import UpdateService from "../components/UpdateService"
 
 const Dashboard = () => {
-	// const possibleTabs = [
-	// 	"my_services",
-	// 	"all_services",
-	// 	"my_subscriptions",
-	// 	"logout"
-	// ]
 	const [tab, setTab] = useState("my_services")
 	return (
 		<div style={{
@@ -22,8 +16,8 @@ const Dashboard = () => {
 			<Navbar tab={tab} setTab={setTab} />
 			<div className="dash_content">
 				{tab === "my_services" && <MyServices />}
-				{tab === "all_services" && <AllServices />}
-				{tab === "my_subscriptions" && <MySubscriptions />}
+				{tab === "add_service" && <AddService />}
+				{tab === "update_service" && <UpdateService />}
 			</div>
 		</div>
 	)
