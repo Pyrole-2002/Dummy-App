@@ -1,6 +1,6 @@
 GET http://localhost:5000/products
 ###
-GET http://localhost:5000/products/646371973f2e71c114f55ac8
+GET http://localhost:5000/products/Aryan
 ###
 POST http://localhost:5000/products
 Content-Type: application/json
@@ -21,7 +21,7 @@ Content-Type: application/json
 ###
 DELETE http://localhost:5000/products/646371973f2e71c114f55ac8
 ###
-PATCH http://localhost:5000/products/646371973f2e71c114f55ac8
+PATCH http://localhost:5000/products/646b5e174e156c857b28688d
 Content-Type: application/json
 
 {

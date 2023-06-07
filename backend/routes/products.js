@@ -20,7 +20,7 @@ router.get('/:username', async (req, res) => {
         const products = await Product.find({
             $or: [
                 { provider: username },
-                { subscribers: { $in: [username] } }
+                // { subscribers: { $in: [username] } }
             ]
         });
         res.json(products);

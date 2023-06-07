@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import LoginRegister from "./pages/LoginRegister";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
+import Product from "./pages/Product";
 import MyContext from "./components/MyContext";
 
 function App() {
@@ -20,6 +21,12 @@ function App() {
 					path="/"
 					element={
 						<LoginRegister />
+					}
+				/>
+				<Route
+					path="/product/:id"
+					element={
+						<Product />
 					}
 				/>
 				<Route

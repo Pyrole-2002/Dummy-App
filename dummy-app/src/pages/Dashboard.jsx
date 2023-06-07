@@ -2,7 +2,6 @@ import { useState } from "react"
 import Navbar from "../components/Navbar"
 import MyServices from "../components/MyServices"
 import AddService from "../components/AddService"
-import UpdateService from "../components/UpdateService"
 
 const Dashboard = () => {
 	const [tab, setTab] = useState("my_services")
@@ -17,7 +16,6 @@ const Dashboard = () => {
 			<div className="dash_content">
 				{tab === "my_services" && <MyServices />}
 				{tab === "add_service" && <AddService />}
-				{tab === "update_service" && <UpdateService />}
 			</div>
 		</div>
 	)

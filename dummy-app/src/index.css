@@ -56,15 +56,13 @@ button.selected {
 }
 
 input {
+	box-sizing: border-box;
 	border: 2px solid #00000000;
 	border-radius: 7px;
-	margin: 5px;
 	font-size: 20px;
-	align-self: right;
 	outline: none;
 	width: 400px;
 	padding: 5px;
-	margin: 15px;
 	height: 60px;
 	caret-color: #ffffff;
 	color: #ffffff;
@@ -72,15 +70,22 @@ input {
 	transition: all 0.3s ease-in-out;
 }
 
+input:hover,
+input:focus,
+input.login_reg:hover,
+input.login_reg:focus,
+input.general_inp:hover,
+input.general_inp:focus {
+	border: 2px solid #ffffff;
+}
+
 input.login_reg {
 	background: transparent;
 	border: 2px solid #8a8a8a;
+	margin: 15px;
 }
 input.login_reg::placeholder {
 	color: #8a8a8a;
-}
-input.login_reg:hover {
-	border: 2px solid #ffffff;
 }
 input.login_reg:focus {
 	background: #ffffff;
@@ -194,4 +199,22 @@ tr:last-child td:last-child {
 input.general_inp {
 	background: transparent;
 	border: 2px solid #8a8a8a;
+	width: 100%;
+}
+
+.fa-icon {
+	margin: 5px;
+	transition: all 0.3s ease-in-out;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.fa-pencil:hover {
+	color: #00ff59;
+	font-size: 25px;
+}
+
+.fa-trash:hover {
+	color: #ff0f4b;
+	font-size: 25px;
 }

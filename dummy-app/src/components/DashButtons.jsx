@@ -21,14 +21,6 @@ const DashButtons = ({ tab, setTab }) => {
             >
                 Add Service
             </button>
-            <button
-                className={`dash_button ${
-                    tab === "update_service" ? "selected" : ""
-                }`}
-                onClick={() => setTab("update_service")}
-            >
-                Update Service
-            </button>
         </div>
     );
 }

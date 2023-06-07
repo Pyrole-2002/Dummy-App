@@ -81,14 +81,26 @@ const AddService = () => {
         >
             <div
                 style={{
-                    background: "#290045",
                     position: "relative",
+                    width: "50%",
+                    height: "80vh",
                     top: "50px",
                     display: "grid",
-                    gridTemplateColumns: "repeat(5, 1fr)",
+                    border: "2px solid #ffffff",
+                    borderRadius: "10px",
+                    padding: "20px",
+                    gridTemplateColumns: "repeat(6, 1fr)",
+                    columnGap: "10px",
+                    justifyItems: "stretch",
+                    justifyContent: "space-evenly",
+                    alignContent: "space-evenly",
                 }}
             >
-                <label>
+                <label
+                    style={{
+                        gridColumnStart: "1",
+                        gridColumnEnd: "3",
+                }}>
                     <input
                         className="general_inp"
                         type="text"
@@ -100,8 +112,10 @@ const AddService = () => {
                         required
                     />
                 </label>
-                <br />
-                <label>
+                <label style={{
+                    gridColumnStart: "3",
+                    gridColumnEnd: "7",
+                }}>
                     <input
                         className="general_inp"
                         type="text"
@@ -113,8 +127,10 @@ const AddService = () => {
                         required
                     />
                 </label>
-                <br />
-                <label>
+                <label style={{
+                    gridColumnStart: "1",
+                    gridColumnEnd: "7",
+                }}>
                     <input
                         className="general_inp"
                         type="text"
@@ -125,8 +141,10 @@ const AddService = () => {
                         autoComplete="off"
                     />
                 </label>
-                <br />
-                <label>
+                <label style={{
+                    gridColumnStart: "1",
+                    gridColumnEnd: "2",
+                }}>
                     <input
                         className="general_inp"
                         type="text"
@@ -137,8 +155,10 @@ const AddService = () => {
                         autoComplete="off"
                     />
                 </label>
-                <br />
-                <label>
+                <label style={{
+                    gridColumnStart: "2",
+                    gridColumnEnd: "5",
+                }}>
                     <input
                         className="general_inp"
                         type="text"
@@ -149,8 +169,10 @@ const AddService = () => {
                         autoComplete="off"
                     />
                 </label>
-                <br />
-                <label>
+                <label style={{
+                    gridColumnStart: "5",
+                    gridColumnEnd: "6",
+                }}>
                     <input
                         className="general_inp"
                         type="text"
@@ -161,8 +183,10 @@ const AddService = () => {
                         autoComplete="off"
                     />
                 </label>
-                <br />
-                <label>
+                <label style={{
+                    gridColumnStart: "6",
+                    gridColumnEnd: "7",
+                }}>
                     <input
                         className="general_inp"
                         type="text"
@@ -173,8 +197,10 @@ const AddService = () => {
                         autoComplete="off"
                     />
                 </label>
-                <br />
-                <label>
+                <label style={{
+                    gridColumnStart: "1",
+                    gridColumnEnd: "4",
+                }}>
                     <input
                         className="general_inp"
                         type="text"
@@ -186,8 +212,10 @@ const AddService = () => {
                         required
                     />
                 </label>
-                <br />
-                <label>
+                <label style={{
+                    gridColumnStart: "4",
+                    gridColumnEnd: "7",
+                }}>
                     <input
                         className="general_inp"
                         type="text"
@@ -199,8 +227,10 @@ const AddService = () => {
                         required
                     />
                 </label>
-                <br />
-                <label>
+                <label style={{
+                    gridColumnStart: "1",
+                    gridColumnEnd: "4",
+                }}>
                     <input
                         className="general_inp"
                         type="text"
@@ -211,8 +241,10 @@ const AddService = () => {
                         autoComplete="off"
                     />
                 </label>
-                <br />
-                <label>
+                <label style={{
+                    gridColumnStart: "4",
+                    gridColumnEnd: "7",
+                }}>
                     <input
                         className="general_inp"
                         type="text"
@@ -223,11 +255,16 @@ const AddService = () => {
                         autoComplete="off"
                     />
                 </label>
-                <br />
                 <button
                     type="submit"
                     style={{
                         background: "#009632",
+                        gridColumnStart: "1",
+                        gridColumnEnd: "7",
+                        width: "40%",
+                        height: "50px",
+                        justifySelf: "center",
+                        fontSize: "20px",
                     }}
                 >
                     Submit
