@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import { useContext } from "react";
 import MyContext from "./MyContext";
+import ImageBut from "./ImageBut";
+import ThumbnailBut from "./ThumbnailBut";
 
 const AddService = () => {
     const { logUser } = useContext(MyContext);
@@ -16,7 +18,7 @@ const AddService = () => {
         brand: "",
         category: "",
         thumbnail: "",
-        images: [],
+        images: "",
     });
     const handleChange = (e) => {
         // name is the field of the form
@@ -42,7 +44,7 @@ const AddService = () => {
                     brand: product.brand,
                     category: product.category,
                     thumbnail: product.thumbnail,
-                    images: product.images.split(","),
+                    images: product.images,
                     provider: logUser.result.username,
                     subscribers: [logUser.result.username],
                 },
@@ -63,12 +65,13 @@ const AddService = () => {
                 brand: "",
                 category: "",
                 thumbnail: "",
-                images: [],
+                images: "",
             });
         } catch (err) {
             console.log("Error Creating Product: ", err);
         }
     };
+
     return (
         <form
             onSubmit={handleSubmit}
@@ -81,13 +84,14 @@ const AddService = () => {
         >
             <div
                 style={{
+                    background: "#151124",
+                    boxShadow: "10px 10px 10px 5px #02000a",
                     position: "relative",
                     width: "50%",
                     height: "80vh",
                     top: "50px",
                     display: "grid",
-                    border: "2px solid #ffffff",
-                    borderRadius: "10px",
+                    borderRadius: "20px",
                     padding: "20px",
                     gridTemplateColumns: "repeat(6, 1fr)",
                     columnGap: "10px",
@@ -100,7 +104,8 @@ const AddService = () => {
                     style={{
                         gridColumnStart: "1",
                         gridColumnEnd: "3",
-                }}>
+                    }}
+                >
                     <input
                         className="general_inp"
                         type="text"
@@ -112,10 +117,12 @@ const AddService = () => {
                         required
                     />
                 </label>
-                <label style={{
-                    gridColumnStart: "3",
-                    gridColumnEnd: "7",
-                }}>
+                <label
+                    style={{
+                        gridColumnStart: "3",
+                        gridColumnEnd: "7",
+                    }}
+                >
                     <input
                         className="general_inp"
                         type="text"
@@ -127,10 +134,12 @@ const AddService = () => {
                         required
                     />
                 </label>
-                <label style={{
-                    gridColumnStart: "1",
-                    gridColumnEnd: "7",
-                }}>
+                <label
+                    style={{
+                        gridColumnStart: "1",
+                        gridColumnEnd: "7",
+                    }}
+                >
                     <input
                         className="general_inp"
                         type="text"
@@ -141,10 +150,12 @@ const AddService = () => {
                         autoComplete="off"
                     />
                 </label>
-                <label style={{
-                    gridColumnStart: "1",
-                    gridColumnEnd: "2",
-                }}>
+                <label
+                    style={{
+                        gridColumnStart: "1",
+                        gridColumnEnd: "2",
+                    }}
+                >
                     <input
                         className="general_inp"
                         type="text"
@@ -155,10 +166,12 @@ const AddService = () => {
                         autoComplete="off"
                     />
                 </label>
-                <label style={{
-                    gridColumnStart: "2",
-                    gridColumnEnd: "5",
-                }}>
+                <label
+                    style={{
+                        gridColumnStart: "2",
+                        gridColumnEnd: "5",
+                    }}
+                >
                     <input
                         className="general_inp"
                         type="text"
@@ -169,10 +182,12 @@ const AddService = () => {
                         autoComplete="off"
                     />
                 </label>
-                <label style={{
-                    gridColumnStart: "5",
-                    gridColumnEnd: "6",
-                }}>
+                <label
+                    style={{
+                        gridColumnStart: "5",
+                        gridColumnEnd: "6",
+                    }}
+                >
                     <input
                         className="general_inp"
                         type="text"
@@ -183,10 +198,12 @@ const AddService = () => {
                         autoComplete="off"
                     />
                 </label>
-                <label style={{
-                    gridColumnStart: "6",
-                    gridColumnEnd: "7",
-                }}>
+                <label
+                    style={{
+                        gridColumnStart: "6",
+                        gridColumnEnd: "7",
+                    }}
+                >
                     <input
                         className="general_inp"
                         type="text"
@@ -197,10 +214,12 @@ const AddService = () => {
                         autoComplete="off"
                     />
                 </label>
-                <label style={{
-                    gridColumnStart: "1",
-                    gridColumnEnd: "4",
-                }}>
+                <label
+                    style={{
+                        gridColumnStart: "1",
+                        gridColumnEnd: "4",
+                    }}
+                >
                     <input
                         className="general_inp"
                         type="text"
@@ -212,10 +231,12 @@ const AddService = () => {
                         required
                     />
                 </label>
-                <label style={{
-                    gridColumnStart: "4",
-                    gridColumnEnd: "7",
-                }}>
+                <label
+                    style={{
+                        gridColumnStart: "4",
+                        gridColumnEnd: "7",
+                    }}
+                >
                     <input
                         className="general_inp"
                         type="text"
@@ -227,33 +248,21 @@ const AddService = () => {
                         required
                     />
                 </label>
-                <label style={{
-                    gridColumnStart: "1",
-                    gridColumnEnd: "4",
-                }}>
-                    <input
-                        className="general_inp"
-                        type="text"
-                        name="thumbnail"
-                        value={product.thumbnail}
-                        onChange={handleChange}
-                        placeholder="Thumbnail"
-                        autoComplete="off"
-                    />
+                <label
+                    style={{
+                        gridColumnStart: "1",
+                        gridColumnEnd: "4",
+                    }}
+                >
+                    <ThumbnailBut product={product} setProduct={setProduct} />
                 </label>
-                <label style={{
-                    gridColumnStart: "4",
-                    gridColumnEnd: "7",
-                }}>
-                    <input
-                        className="general_inp"
-                        type="text"
-                        name="images"
-                        value={product.images}
-                        onChange={handleChange}
-                        placeholder="Images (comma separated)"
-                        autoComplete="off"
-                    />
+                <label
+                    style={{
+                        gridColumnStart: "4",
+                        gridColumnEnd: "7",
+                    }}
+                >
+                    <ImageBut product={product} setProduct={setProduct} />
                 </label>
                 <button
                     type="submit"

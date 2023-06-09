@@ -218,3 +218,21 @@ input.general_inp {
 	color: #ff0f4b;
 	font-size: 25px;
 }
+
+.file-button {
+	cursor: pointer;
+	font-size: 1.2rem;
+	font-weight: 700;
+	border: 4px solid #8a8a8a;
+	padding: 10px;
+	border-radius: 7px;
+	box-sizing: border-box;
+	color: #8a8a8a;
+	transition: all 0.4s ease-in-out;
+}
+
+.file-button:hover {
+	color: #151124;
+	border: 4px solid #ffffff;
+	background-color: #ffffff;
+}

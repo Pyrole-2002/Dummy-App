@@ -42,7 +42,7 @@ router.post('/', async (req, res) => {
         brand: req.body.brand,
         category: req.body.category,
         thumbnail: req.body.thumbnail,
-        image: req.body.images[0],
+        image: req.body.images,
         provider: req.body.provider,
         subscribers: req.body.subscribers
     })
