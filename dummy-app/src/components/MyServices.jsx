@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const MyServices = () => {
     const navigate = useNavigate();
-    const { logUser, setLogUser } = useContext(MyContext);
+    const { logUser } = useContext(MyContext);
     const [data, setData] = useState([]);
     useEffect(() => {
         async function fetchData() {
@@ -26,7 +26,7 @@ const MyServices = () => {
         fetchData();
         const interval = setInterval(fetchData, 1000);
         return () => clearInterval(interval);
-    }, []);
+    });
     // console.log(data);
     if (data === undefined || data.length === 0) {
         return <h1 style={{ textAlign: "center" }}>No Products</h1>;
