@@ -4,7 +4,7 @@ import { useContext } from "react";
 import MyContext from "./MyContext";
 
 const AllServices = () => {
-	const { logUser, setLogUser } = useContext(MyContext);
+	const { logUser } = useContext(MyContext);
 
 	const [data, setData] = useState([]);
 	useEffect(() => {

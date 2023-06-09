@@ -3,31 +3,31 @@ import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import MyContext from "./MyContext"
 
-const TokenVerification = async (token) => {
-	if (!token) {
-		return false
-	};
-	try {
-		const response = await axios({
-			method: "POST",
-			url: "http://localhost:5000/users/verify",
-			data: {
-				token: token,
-			},
-			Headers: {
-				Accept: "application/json",
-			},
-		});
-		console.log("Response: ", response.data);
-		return response.data;
-	} catch (error) {
-		console.log("Error While Verifying Token: ", error);
-	}
-}
+// const TokenVerification = async (token) => {
+// 	if (!token) {
+// 		return false
+// 	};
+// 	try {
+// 		const response = await axios({
+// 			method: "POST",
+// 			url: "http://localhost:5000/users/verify",
+// 			data: {
+// 				token: token,
+// 			},
+// 			Headers: {
+// 				Accept: "application/json",
+// 			},
+// 		});
+// 		console.log("Response: ", response.data);
+// 		return response.data;
+// 	} catch (error) {
+// 		console.log("Error While Verifying Token: ", error);
+// 	}
+// }
 
 const LoginForm = () => {
 	const navigate = useNavigate();
-	const { logUser, setLogUser } = useContext(MyContext);
+	const { setLogUser } = useContext(MyContext);
 	const [user, setUser] = useState({
 		username: "",
 		password: "",

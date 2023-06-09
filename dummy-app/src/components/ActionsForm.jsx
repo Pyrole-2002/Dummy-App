@@ -5,7 +5,7 @@ import MyContext from "./MyContext";
 
 const ActionsForm = () => {
 	const [action, setAction] = useState("Delete")
-    const { logUser, setLogUser } = useContext(MyContext);
+    const { logUser } = useContext(MyContext);
 	const [product, setProduct] = useState({
 		id: "",
 	})
