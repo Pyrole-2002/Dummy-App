@@ -41,8 +41,8 @@ const MyServices = () => {
         Stock: "stock",
         Brand: "brand",
         Category: "category",
-        Thumbnail: "thumbnail",
-        Image: "image",
+        // Thumbnail: "thumbnail",
+        // Image: "image",
         Provider: "provider",
     };
     var headings = Object.keys(headingsMap);
@@ -53,6 +53,8 @@ const MyServices = () => {
                     {headings.map((heading, index) => (
                         <th key={index}>{heading}</th>
                     ))}
+                    <th>Thumbnail</th>
+                    <th>Image</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -76,6 +78,26 @@ const MyServices = () => {
                             {headings.map((heading, index) => (
                                 <td key={index}>{row[headingsMap[heading]]}</td>
                             ))}
+                            <td>
+                                <img
+                                    src={row.thumbnail}
+                                    alt="Thumbnail"
+                                    style={{
+                                        width: "100%",
+                                        height: "auto",
+                                    }}
+                                />
+                            </td>
+                            <td>
+                                <img
+                                    src={row.image}
+                                    alt="More Images"
+                                    style={{
+                                        width: "100%",
+                                        height: "auto",
+                                    }}
+                                />
+                            </td>
                             <td>
                                 <FontAwesomeIcon
                                     className="fa-icon fa-pencil"

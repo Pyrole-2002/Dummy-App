@@ -1,7 +1,7 @@
 import { useRef } from "react";
 
 const ThumbnailBut = ({ product, setProduct }) => {
-    const imageInputRef = useRef();
+    const thumbnailInputRef = useRef();
     const getBase64 = (file) => {
         return new Promise((resolve, reject) => {
             var reader = new FileReader();
@@ -17,7 +17,7 @@ const ThumbnailBut = ({ product, setProduct }) => {
     return (
         <div>
             <label
-                htmlFor="imageUpload"
+                htmlFor="thumbnailUpload"
                 className="file-button"
                 style={{
                     float: "left",
@@ -26,17 +26,17 @@ const ThumbnailBut = ({ product, setProduct }) => {
                 Upload Thumbnail
             </label>
             <input
-                id="imageUpload"
-                name="imageUpload"
-                ref={imageInputRef}
+                id="thumbnailUpload"
+                name="thumbnailUpload"
+                ref={thumbnailInputRef}
                 style={{ display: "none" }}
                 type="file"
                 onChange={async () => {
                     const image = await getBase64(
-                        imageInputRef.current.files[0]
+                        thumbnailInputRef.current.files[0]
                     );
-                    console.log(typeof image);
                     setProduct({ ...product, thumbnail: image });
+                    console.log("THUMBNAIL", { ...product, images: image });
                 }}
                 accept="image/png,image/jpg,image/jpeg"
             />

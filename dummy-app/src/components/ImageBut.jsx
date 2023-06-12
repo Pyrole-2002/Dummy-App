@@ -35,8 +35,8 @@ const ImageBut = ({ product, setProduct }) => {
                     const image = await getBase64(
                         imageInputRef.current.files[0]
                     );
-                    console.log(typeof "hi");
                     setProduct({ ...product, images: image });
+                    console.log("IMAGE", { ...product, images: image });
                 }}
                 accept="image/png,image/jpg,image/jpeg"
             />
