@@ -1,6 +1,8 @@
 require('dotenv').config();
 
 const express = require('express');
+// const multer = require('multer');
+// const upload = multer({ dest: 'uploads/' });
 const app = express();
 const cors = require('cors');
 
@@ -20,6 +22,9 @@ app.use('/products', productsRouter);
 
 const usersRouter = require('./routes/users');
 app.use('/users', usersRouter);
+
+const uploadRouter = require('./routes/upload');
+app.use('/upload', uploadRouter);
 
 const PORT = process.env.PORT || 2000;
 
