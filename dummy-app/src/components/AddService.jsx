@@ -254,7 +254,7 @@ const AddService = () => {
                         gridColumnEnd: "4",
                     }}
                 >
-                    <ThumbnailBut product={product} setProduct={setProduct} />
+                    <ImageBut product={product} setProduct={setProduct} />
                 </label>
                 <label
                     style={{
@@ -262,7 +262,7 @@ const AddService = () => {
                         gridColumnEnd: "7",
                     }}
                 >
-                    <ImageBut product={product} setProduct={setProduct} />
+                    <ThumbnailBut product={product} setProduct={setProduct} />
                 </label>
                 <button
                     type="submit"
